@@ -1,0 +1,428 @@
+/* --- GLOBAL RESETS & TYPOGRAPHY --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b0b0b;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #eae6e6;
+}
+
+/* --- NAVBAR --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    padding: 19px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-link {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-link a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link a:hover {
+    color: #7b33c3;
+}
+
+/* --- HERO SECTION (.pkachu) --- */
+.pkachu {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 8%;
+    background: linear-gradient(211deg, #1e0033, #3a0ca3, #7209b7);
+}
+
+.profile {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.profile-photo {
+    right: -455px;
+    position: relative;
+    width: 857px;
+    height: 550px;
+    overflow: hidden;
+    border-radius: 16px;
+    background: linear-gradient(211deg, #7b33c3ea, #4816bc, #7b33c3ea);
+    box-shadow: 0 20px 50px rgba(123, 51, 195, 0.4);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* --- ANIMATED SKILLS BOX --- */
+.slides2 {
+    color: #fff;
+}
+
+.scroll-box {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.scroll-content {
+    animation: autoScroll 15s linear infinite;
+}
+
+.scroll-box:hover .scroll-content {
+    animation-play-state: paused;
+}
+
+.floating-box {
+    top: 251px;
+    float: left;
+    right: 1014px;
+    position: absolute;
+    width: 400px;
+    height: 490px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    color: #fff;
+    animation: float 6s ease-in-out infinite;
+}
+
+.skill-item {
+    margin-bottom: 20px;
+}
+
+/* --- GLOBAL SECTION STYLES --- */
+section {
+    height: 80vh;
+    padding: 100px 8%;
+}
+
+section h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #7b33c3;
+}
+
+section p {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    color: #eae6e6;
+}
+
+/* --- NEW PORTFOLIO PROJECT GRID --- */
+section.portfolio-project {
+    height: auto;
+    /* Overrides the 80vh global rule */
+    padding: 60px 8%;
+}
+
+.portfolio-project {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1100px;
+    margin: 0 auto 4rem auto;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .portfolio-project {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .project-image-wrapper {
+        grid-column: 1 / 8;
+        grid-row: 1;
+    }
+
+    .project-content {
+        grid-column: 6 / -1;
+        grid-row: 1;
+        z-index: 2;
+    }
+}
+
+.project-image-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(123, 51, 195, 0.3);
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.portfolio-project:hover .project-img {
+    filter: grayscale(0%);
+}
+
+.project-content {
+    background: rgba(11, 11, 11, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(123, 51, 195, 0.3);
+    padding: 2.5rem;
+    border-radius: 13px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-top: 4px solid #7b33c3;
+    margin-top: -2rem;
+    position: relative;
+}
+
+@media (min-width: 900px) {
+    .project-content {
+        margin-top: 0;
+        padding: 3.5rem;
+    }
+}
+
+.project-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: left;
+    /* Overrides global text center */
+}
+
+.project-description {
+    color: #eae6e6;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    /* Overrides global text center */
+    max-width: 100%;
+}
+
+.project-tech-stack {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    color: #7b33c3;
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    background: #7b33c3;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.project-link:hover {
+    background: #4816bc;
+    transform: translateY(-2px);
+}
+
+/* --- FOOTER --- */
+footer {
+    background: linear-gradient(211deg, #7b33c3ea, #4816bc, #7b33c3ea);
+    color: white;
+    text-align: center;
+    padding: 48px 10px 62px;
+}
+
+/* --- KEYFRAMES --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes autoScroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* --- MOBILE FIXES (Android & iOS) --- */
+@media (max-width: 768px) {
+
+    /* 1. Global spacing adjustments */
+    section {
+        padding: 40px 5%;
+        height: auto;
+        /* Prevents sections from strictly being 80vh and overlapping */
+    }
+
+    .pkachu {
+        padding: 40px 5%;
+    }
+
+    /* 2. Stack the hero section vertically */
+    .profile {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 3. Fix the squished Hero Image */
+    .profile-photo {
+        width: 100%;
+        max-width: 100%;
+        height: 350px;
+        /* Slightly shorter for mobile */
+        right: 0;
+        /* Removes the crazy desktop offset */
+        left: 0;
+        margin: 0 auto;
+        /* Centers the image */
+    }
+
+    /* 4. Fix the overlapping Skills Box */
+    .floating-box {
+        top: 69px;
+        position: relative;
+        /* Puts it back in the normal top-to-bottom flow */
+        float: none;
+        right: auto;
+        left: auto;
+        width: 100%;
+        /* Take up the full screen width */
+        max-width: 100%;
+        height: auto;
+        min-height: 350px;
+        margin-top: 10px;
+        box-sizing: border-box;
+        /* Keeps padding inside the width */
+    }
+
+    /* 5. Fix the Project Card spacing */
+    section.portfolio-project {
+        padding: 40px 5%;
+        margin-top: 2rem;
+        /* Forces it below the skills box */
+    }
+
+    .project-content {
+        margin-top: -1rem;
+        /* Slightly less overlap on the cow image for mobile */
+        padding: 1.5rem;
+        /* Gives the text more breathing room */
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+        /* Scales the text down a bit */
+    }
+
+    .project-tech-stack {
+        flex-wrap: wrap;
+        /* Allows tags to wrap to a new line if screen is narrow */
+    }
+
+    /* 6. Fix the chopped Footer */
+    footer {
+        width: 100%;
+        padding: 30px 5%;
+        box-sizing: border-box;
+    }
+
+    /* 7. Hide desktop nav items (prep for a hamburger menu later) */
+    .nav-link {
+        display: none;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+}
+
+
+.info {
+    
+    justify-items: center;
+    background: linear-gradient(194deg, #bd8cefea, #330a91, #bd8cefea);
+    border-radius: 66px;
+    padding: 10px 22px 10px;
+    box-sizing: border-box;
+    border: 2px solid bisque;
+    height: stretch;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+   
+    animation: float 6s ease-in-out infinite;
+}
+/* span{
+    box-sizing: border-box;
+    border: 2px solid red;
+    border-radius: 20px;
+
+
+} */
+
+.info p h1{
+     color: #ffffff;
+     
+      
+}
